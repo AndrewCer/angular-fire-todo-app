@@ -19,26 +19,6 @@
     <title>ToDo Fire App</title>
   </head>
   <body>
-    <div class="container angular-todos">
-      <div class="row">
-        <div ng-controller='TodoController'>
-          <h1>Angular Fire Todos</h1>
-          <form ng-submit='addTodo()'>
-            <div class="form-group">
-              <label for="todo-input">New Todo</label>
-              <input autofocus type="text" class="form-control" id="todo-input" placeholder="Todo!" ng-model='newTodo.text'>
-            </div>
-          </form>
-
-          <a class='item' ng-repeat='todo in todos'>
-            <i class='glyphicon glyphicon-remove' ng-click='removeTodo(todo)'></i>
-            <div class="content">
-              <div class="header" ng-class='{strike: todo.completed}' ng-click='updateTodo(todo)'>{{todo.text}}</div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </div>
+  <div ng-view></div>
   </body>
 </html>
