@@ -1,0 +1,23 @@
+.angular-todos {
+  padding: 50px;
+  border: solid black 1px;
+  /*text-align: center;*/
+  margin-top: 5%;
+}
+
+.item {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.content {
+  display: inline-block;
+}
+
+.strike {
+  text-decoration: line-through;
+}
