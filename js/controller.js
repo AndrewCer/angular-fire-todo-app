@@ -23,7 +23,11 @@ app.controller('AuthController', ['$scope', '$location', '$firebaseAuth', functi
   }
 }])
 
-app.controller('TodoController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
+app.controller('TodoController', ['$scope', '$location', '$firebaseArray', '$firebaseAuth', function ($scope, $location, $firebaseArray, $firebaseAuth, user) {
+  console.log(user);
+  var authRef = new Firebase('https://andrewcerlistdemo.firebaseio.com');
+  var authObj = $firebaseAuth(authRef);
+
   var todosRef = new Firebase('https://andrewcerlistdemo.firebaseio.com/list');
   $scope.todos = $firebaseArray(todosRef);
   //{text: 'some todo', completed: false}
@@ -45,5 +49,9 @@ app.controller('TodoController', ['$scope', '$firebaseArray', function ($scope, 
       todo.completed = true;
     }
     $scope.todos.$save(todo)
+  }
+  $scope.logout = function () {
+    authObj.$unauth();
+    $location.path('/');
   }
 }])
